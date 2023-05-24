@@ -6,7 +6,7 @@ const ProductContext = createContext({});
 
 export const ProductProvider = ({ children }) => {
 
-    const { REACT_APP_API_URL } = process.env;
+    const { REACT_APP_SERVER_URL } = process.env;
     //State variable for get request to all products.
     const [productsToDisplay, setproductsToDisplay] = useState([]);
     //State variable for bikes get request
@@ -17,7 +17,7 @@ export const ProductProvider = ({ children }) => {
     //Get all products for HomePage.jsx
     const renderProduct = () => {
         //Url for product endpoint stored in a variable.
-        const urlForProductList = `${REACT_APP_API_URL}/product`;
+        const urlForProductList = `${REACT_APP_SERVER_URL}/product`;
         axios
             .get(urlForProductList)
             .then((response) => {
@@ -27,13 +27,13 @@ export const ProductProvider = ({ children }) => {
             .catch((err) => {
                 // If request not successful will console error message
                 console.log(err);
-            });
+            })
     };
 
     //Get request for BikesPage.jsx
     useEffect(() => {
         //URL for bikes endpoint stored in a variable
-        const urlForProductList = `${REACT_APP_API_URL}/product/bikes`;
+        const urlForProductList = `${REACT_APP_SERVER_URL}/product/bikes`;
         axios
             .get(urlForProductList)
             .then((response) => {
@@ -44,11 +44,11 @@ export const ProductProvider = ({ children }) => {
                 //console error if request fails.
                 console.log(err);
             });
-    }, [REACT_APP_API_URL]);
+    }, [REACT_APP_SERVER_URL]);
 
     //Get request for BikeComponent.jsx
     useEffect(() => {
-        const urlForProductList = `${REACT_APP_API_URL}/product/components`;
+        const urlForProductList = `${REACT_APP_SERVER_URL}/product/components`;
         axios
             .get(urlForProductList)
             .then((response) => {
@@ -59,7 +59,7 @@ export const ProductProvider = ({ children }) => {
                 //console error message if request fails
                 console.log(err);
             });
-    }, [REACT_APP_API_URL]);
+    }, [REACT_APP_SERVER_URL]);
 
     return (
         <ProductContext.Provider value={{

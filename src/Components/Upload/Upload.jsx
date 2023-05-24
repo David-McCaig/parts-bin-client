@@ -128,7 +128,7 @@ const Upload = () => {
       })} className="upload-add-form">
         {/*Add image*/}
 
-        <img src={imagePreview} width="100%" className="image" ></img>
+        <img src={imagePreview} alt= '' width="100%" className="image" ></img>
         <input type="file" name="image_path" className="image__button" onChange={handleFileChange} />
 
         <div className="upload-add-form__item-details">

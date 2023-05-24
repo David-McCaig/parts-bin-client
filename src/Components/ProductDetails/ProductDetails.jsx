@@ -20,8 +20,6 @@ function ProductDetails({ product, id, productMessages }) {
 
   const navigate = useNavigate();
 
-  const [confirmationMessage, setConfirmationMessage] = useState("");
-
   // Add a check to ensure that the "customer_name" property exists on the "user" object
   const username = user.customer_name ? user.customer_name : '';
   const email = user.email ? user.email : '';
@@ -118,7 +116,6 @@ function ProductDetails({ product, id, productMessages }) {
                 Message Seller
               </ButtonPrimary>
             </form>}
-          <p className='message__sent'>{confirmationMessage}</p>
 
         </div>
       </div>
