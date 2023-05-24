@@ -28,7 +28,7 @@ export const ProductProvider = ({ children }) => {
                 // If request not successful will console error message
                 console.log(err);
             });
-    };
+    }
 
     //Get request for BikesPage.jsx
     useEffect(() => {
