@@ -14,7 +14,7 @@ function HomePage() {
     useEffect(() => {
       window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
       renderProduct();
-    },[renderProduct])
+    },[]);
 
   //If no product to display, loading wheel will be displayed on screen
   if (productsToDisplay.length === 0) {
@@ -23,7 +23,7 @@ function HomePage() {
         <div className="content" />
       </Spin>
     )
-  }
+  };
 
   return (
     <>
@@ -35,6 +35,6 @@ function HomePage() {
       </main>
     </>
   );
-}
+};
 
 export default HomePage;

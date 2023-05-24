@@ -9,7 +9,7 @@ import { Button, Checkbox, Form, Input, message } from 'antd';
 
 const Login = () => {
 
-  const { REACT_APP_SERVER_URL } = process.env;
+  const { REACT_APP_API_URL } = process.env;
   //sending data and setting state using useContext hook.
   const { setUser, success, setSuccess } = useContext(AuthContext)
   //state for error message.
@@ -17,7 +17,7 @@ const Login = () => {
 
   const handleSubmit = (formData) => {
     axios
-      .post(`${REACT_APP_SERVER_URL}/user/login`, {
+      .post(`${REACT_APP_API_URL}/user/login`, {
         email: formData.email,
         password: formData.password,
       })

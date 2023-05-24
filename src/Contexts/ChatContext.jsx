@@ -3,10 +3,10 @@ import io from 'socket.io-client';
 
 const ChatContext = createContext({});
 
-const { REACT_APP_SERVER_URL } = process.env;
+const { REACT_APP_API_URL } = process.env;
 
 //socket will run on port 8000
-const socket = io.connect(REACT_APP_SERVER_URL);
+const socket = io.connect(REACT_APP_API_URL);
 
 export const ChatProvider = ({ children }) => {
 

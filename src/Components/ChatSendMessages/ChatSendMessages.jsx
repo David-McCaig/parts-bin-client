@@ -11,7 +11,7 @@ const { TextArea } = Input;
 
 function ChatSendMessages() {
 
-  const { REACT_APP_SERVER_URL } = process.env;
+  const { REACT_APP_API_URL } = process.env;
 
   const { socket, room, setRoom, productId, messagesRecieved, recieveLocalMessage } = useContext(ChatContext);
   const { user } = useContext(AuthContext);
@@ -29,7 +29,7 @@ function ChatSendMessages() {
       // Send message to server. 
       socket.emit('send_message', { username, room, message, __createdtime__ });
       setMessage('');
-      axios.post(`${REACT_APP_SERVER_URL}/chat`, {
+      axios.post(`${REACT_APP_API_URL}/chat`, {
         'user_name': username,
         'message': message,
         'room': room,

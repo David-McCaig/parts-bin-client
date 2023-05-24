@@ -10,7 +10,7 @@ import { Progress, message } from 'antd'
 
 const Upload = () => {
 
-  const { REACT_APP_SERVER_URL } = process.env;
+  const { REACT_APP_API_URL } = process.env;
   //Navigation
   const navigate = useNavigate();
 
@@ -77,7 +77,7 @@ const Upload = () => {
       return setLoading(percent);
     };
 
-    const urlForInventoryAdd = `${REACT_APP_SERVER_URL}/product/upload`;
+    const urlForInventoryAdd = `${REACT_APP_API_URL}/product/upload`;
     //POST request to add inventory item
     const formData = new FormData();
     formData.append('item_name', values.item_name);

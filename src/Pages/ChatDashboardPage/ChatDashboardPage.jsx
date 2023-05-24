@@ -10,7 +10,7 @@ import { BsFillEnvelopeOpenFill } from "react-icons/bs";
 
 function ChatDashboard() {
 
-  const { REACT_APP_SERVER_URL} = process.env
+  const { REACT_APP_API_URL } = process.env
 
   const { user } = useContext(AuthContext);
   const { setBuyMessages, setSellMessages, buyMessages, sellMessages } = useContext(ChatContext);
@@ -20,26 +20,26 @@ function ChatDashboard() {
   //get first message of each chatroom for items that user is selling
   useEffect(() => {
     axios
-      .get(`${REACT_APP_SERVER_URL}/chat/buy/${email}`)
+      .get(`${REACT_APP_API_URL}/chat/buy/${email}`)
       .then((res) => {
         setBuyMessages(res.data)
       })
       .catch((err) => {
         console.log(err)
       })
-  }, [REACT_APP_SERVER_URL, email, setBuyMessages])
+  }, [REACT_APP_API_URL, email, setBuyMessages])
 
   //get first message of each chatroom for items that user is buying
   useEffect(() => {
     axios
-      .get(`${REACT_APP_SERVER_URL}/chat/sell/${email}`)
+      .get(`${REACT_APP_API_URL}/chat/sell/${email}`)
       .then((res) => {
         setSellMessages(res.data)
       })
       .catch((err) => {
         console.log(err)
       })
-  }, [REACT_APP_SERVER_URL, email, setSellMessages])
+  }, [REACT_APP_API_URL, email, setSellMessages])
 
   //if no user loading screen
   if (!user) {

@@ -6,7 +6,7 @@ import { Spin } from 'antd';
 
 function ProductDetailsPage() {
 
-    const { REACT_APP_SERVER_URL } = process.env
+    const { REACT_APP_API_URL } = process.env
     //extract id parameter from URL
     const { id } = useParams();
 
@@ -16,7 +16,7 @@ function ProductDetailsPage() {
 
     //Get request for individual products using id in the URL.
     useEffect(() => {
-        const urlForProductList = `${REACT_APP_SERVER_URL}/product/${id}`;
+        const urlForProductList = `${REACT_APP_API_URL}/product/${id}`;
         axios
             .get(urlForProductList)
             .then((res) => {
@@ -28,7 +28,7 @@ function ProductDetailsPage() {
                 //if get request not successful console error message
                 console.log(err)
             })
-    }, [id])
+    }, [REACT_APP_API_URL, id])
 
     //get chat messages based on product id
     useEffect(() => {
