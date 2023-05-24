@@ -1,0 +1,27 @@
+@use "../../styles/mixins/mixins.scss" as *;
+@use "../../styles/partials/colours" as *;
+
+.button__primary {
+    margin: auto;
+    width: 8rem;
+    height: 2.3rem;
+    border-radius: .5rem;
+    border: 1px $secondary-color-3 solid;
+    background-color: $secondary-color-3 ;
+    margin-bottom: 1rem;
+    background-color: #ddd;
+    border: none;
+    color: black;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: $color-primary-1;
+        color: $color-primary-4;
+    }
+
+    @include tablet {
+        width: 20rem;
+    }
+}

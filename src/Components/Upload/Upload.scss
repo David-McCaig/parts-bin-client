@@ -1,0 +1,182 @@
+@use "../../styles/mixins/mixins.scss" as *;
+@use "../../styles/partials/colours" as *;
+
+.upload-add-form-top {
+    background-color: $color-primary-4;
+
+    &__nav-div {
+        display: flex;
+        border-bottom: 1px solid black;
+        padding: 0rem 1rem;
+        gap: 1rem;
+    }
+}
+
+a {
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.upload-add-form {
+    padding: 0 1rem 2rem;
+
+    @include tablet {
+        padding: 0 2rem 7rem;
+        display: flex;
+        align-items: center;
+    }
+
+    @include desktop {
+        padding: 0 1rem 7rem;
+    }
+
+    &__message {
+        font-weight: 400;
+        color: black;
+        font-size: 1.3rem;
+    }
+
+    &__item-details {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 2rem;
+
+        @include tablet {
+            border-bottom: none;
+            padding-bottom: 0rem;
+            padding-right: 2rem;
+        }
+
+        @include tablet {
+            max-width: 50rem;
+        }
+    }
+
+    &__description {
+        padding: 0.5rem;
+        border-radius: 1rem;
+        font-weight: 400;
+        font-size: 0.9rem;
+        color: #323232;
+        resize: none;
+        overflow: auto;
+        width: 100%;
+        border: 1px solid $color-primary-3;
+        height: 7rem;
+
+        @include tablet {
+            height: 7rem;
+        }
+
+        @include desktop {
+            height: 10rem;
+        }
+
+
+        &:focus {
+            outline-color: black;
+        }
+    }
+
+    &__name {
+        padding: 0.5rem;
+        border-radius: .3rem;
+        font-weight: 400;
+        font-size: .875rem;
+        color: $color-primary-1;
+        width: 100%;
+        border: 1px solid $color-primary-3;
+        background-color: white;
+
+        &:focus {
+            outline-color: black;
+        }
+    }
+
+    &__category {
+        padding: 0.5rem;
+        border-radius: 1rem;
+        font-weight: 400;
+        font-size: 0.9rem;
+        color: #323232;
+        width: 100%;
+        border: 1px solid $color-primary-3;
+
+        &:focus {
+            outline-color: black;
+        }
+    }
+
+    &__button-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: .5rem;
+    }
+
+    &__status-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__radio-container {
+        display: flex;
+        align-items: center;
+    }
+
+    &__everything-radio-container {
+        display: flex;
+        gap: 2rem;
+    }
+
+    &__headings {
+        font-weight: 600;
+        color: $color-primary-1;
+        padding-bottom: .5rem;
+    }
+}
+
+.image {
+    margin-top: 4rem;
+    width: 90%;
+    
+    @include tablet {
+        width: 40rem;
+    }
+}
+
+.file-upload-button {
+    margin: auto;
+    width: 20rem;
+    height: 2.3rem;
+    border-radius: .5rem;
+    border: 1px $secondary-color-3 solid;
+    background-color: $secondary-color-3 ;
+    margin-bottom: 1rem;
+    background-color: #ddd;
+    border: none;
+    color: black;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: $color-primary-1;
+        color: $color-primary-4;
+    }
+
+}
+
+::placeholder {
+    color: $secondary-color-3;
+}
+
+.error__message {
+    color: red;
+    opacity: 55%;
+    margin-top: .2rem;
+    margin: .2rem 0rem 0rem .2rem;
+}

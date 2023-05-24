@@ -1,0 +1,59 @@
+@use "../../styles/mixins/mixins.scss" as *;
+@use "../../styles/partials/colours" as *;
+
+.chat-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 0rem .25rem;
+
+    &__image {
+        width: 5rem;
+        height: 5rem;
+        object-fit: cover;
+        margin: .5rem;
+    }
+
+    &__item-name {
+        font-size: 1rem;
+        font-weight: 800;
+        padding-left: 1rem;
+        margin-top: .5rem;
+
+        @include desktop {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__user-name {
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    &__circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        font-size: 1rem;
+        font-weight: 400;
+        color:$secondary-color-1;
+        background: $secondary-color-3
+    }
+}
+
+#chat-details__button {
+    background-color:'#E1E1E1';
+    color:'black'
+}

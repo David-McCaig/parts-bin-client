@@ -1,0 +1,31 @@
+@use "../../styles/mixins/mixins.scss" as *;
+@use "../../styles/partials/colours" as *;
+
+.nav__button {
+    background-color: transparent;
+    color: rgba(111, 112, 113, 255);
+    border-width: 0;
+    font-weight: inherit;
+    line-height: inherit;
+    padding-top: .5rem;
+    padding-left: 0rem;
+
+    @include tablet {
+        margin-left: .1rem;
+        padding-left: .4rem;
+    }
+}
+
+.nav__message-button {
+    font-size: 1.1rem;
+    color: rgba(111, 112, 113, 255);
+    padding: 0rem;
+}
+
+.nav__message-text {
+    font-size: 1.1rem;
+    padding: 0rem;
+    margin-bottom: 0rem;
+    margin-top: .1rem;
+}
+

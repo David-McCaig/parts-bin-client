@@ -1,0 +1,39 @@
+@use "../../styles/mixins/mixins.scss" as *;
+
+.hero__image {
+    background-image: url(../../assets/images/WhiteMesaMTB-35.jpg);
+    background-color: black;
+    background-position: 20% 35%;
+    background-size: 100%;
+    height: 70vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include tablet {
+        height: 70vh;
+        min-width: 10rem;
+
+    }
+}
+
+.hero__text {
+    color: white;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: 'Roboto Flex';
+    font-weight: 600;
+    line-height: 32px;
+    width: 15rem;
+    margin-left: 1rem;
+
+    @include tablet {
+        margin-left: 3rem;
+        font-size: 2.5rem;
+        line-height: 3.5rem;
+        width: 34rem;
+        margin-bottom: 5rem;
+    }
+}
