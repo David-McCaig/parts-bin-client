@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
@@ -8,6 +9,7 @@ import { Button, Checkbox, Form, Input, message } from 'antd';
 
 const Signup = () => {
   
+  const { REACT_APP_SERVER_URL } = process.env;
   //State for error message
   const [error, setError] = useState('');
 
@@ -16,7 +18,7 @@ const Signup = () => {
   //axios post request to Sign up new user.
   const handleSubmit = (formData) => {
     axios
-      .post('http://localhost:8000/user/register', {
+      .post(`${REACT_APP_SERVER_URL}/user/register`, {
           email: formData.email,
           password:formData.password,
           customer_name: formData.customer_name,

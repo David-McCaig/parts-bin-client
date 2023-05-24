@@ -7,13 +7,14 @@ import ProductContext from '../../Contexts/ProductContext';
 
 
 function HomePage() {
-
-  const { productsToDisplay } = useContext(ProductContext);
+  
+  const { productsToDisplay, renderProduct } = useContext(ProductContext);
 
     //Scroll to top on first render.
     useEffect(() => {
       window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
-    },[])
+      renderProduct();
+    },[renderProduct])
 
   //If no product to display, loading wheel will be displayed on screen
   if (productsToDisplay.length === 0) {

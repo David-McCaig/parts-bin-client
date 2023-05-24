@@ -6,6 +6,8 @@ import axios from 'axios';
 const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
+
+  const { REACT_APP_SERVER_URL } = process.env;
   //sets the user information when logged in.
   const [user, setUser] = useState('');
   //Sets failed auth to let user know if invalid username or password was input.
@@ -27,7 +29,7 @@ export const AuthProvider = ({ children }) => {
     
     if (authToken) {
       axios
-        .get('http://localhost:8000/user/profile', {
+        .get(`${REACT_APP_SERVER_URL}/user/profile`, {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
@@ -47,7 +49,7 @@ export const AuthProvider = ({ children }) => {
       setFailedAuth(false);
       setSuccess(false);
     }
-  }, [authToken]);
+  }, [REACT_APP_SERVER_URL, authToken]);
 
   return (
     <AuthContext.Provider value={{

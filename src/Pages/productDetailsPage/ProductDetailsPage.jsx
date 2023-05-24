@@ -6,6 +6,7 @@ import { Spin } from 'antd';
 
 function ProductDetailsPage() {
 
+    const { REACT_APP_SERVER_URL } = process.env
     //extract id parameter from URL
     const { id } = useParams();
 
@@ -15,7 +16,7 @@ function ProductDetailsPage() {
 
     //Get request for individual products using id in the URL.
     useEffect(() => {
-        const urlForProductList = `http://localhost:8000/product/${id}`;
+        const urlForProductList = `${REACT_APP_SERVER_URL}/product/${id}`;
         axios
             .get(urlForProductList)
             .then((res) => {

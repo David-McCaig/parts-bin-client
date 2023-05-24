@@ -1,5 +1,5 @@
 import './ChatMessages.scss';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import ChatContext from '../../Contexts/ChatContext';
 import AuthContext from '../../Contexts/AuthContext'
 import { v4 as uuidv4 } from 'uuid';

@@ -9,9 +9,9 @@ import { Input } from 'antd';
 import { SendOutlined } from '@ant-design/icons'
 const { TextArea } = Input;
 
-
-
 function ChatSendMessages() {
+
+  const { REACT_APP_SERVER_URL } = process.env;
 
   const { socket, room, setRoom, productId, messagesRecieved, recieveLocalMessage } = useContext(ChatContext);
   const { user } = useContext(AuthContext);
@@ -29,7 +29,7 @@ function ChatSendMessages() {
       // Send message to server. 
       socket.emit('send_message', { username, room, message, __createdtime__ });
       setMessage('');
-      axios.post('http://localhost:8000/chat', {
+      axios.post(`${REACT_APP_SERVER_URL}/chat`, {
         'user_name': username,
         'message': message,
         'room': room,
@@ -47,18 +47,18 @@ function ChatSendMessages() {
             created_at: __createdtime__,
             updated_at: __createdtime__,
           };
-  
+
           // Retrieve the existing messages from local storage
           const existingMessages = localStorage.getItem('last100MessagesLocal');
           let updatedMessages = [];
-  
+
           if (existingMessages) {
             // Parse the existing messages from JSON
             updatedMessages = JSON.parse(existingMessages);
             // Add the new message to the array
             updatedMessages.push(dataToStore);
           }
-  
+
           // Store the updated messages back to local storage
           localStorage.setItem('last100MessagesLocal', JSON.stringify(updatedMessages));
           recieveLocalMessage();

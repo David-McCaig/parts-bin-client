@@ -15,7 +15,7 @@ import { Spin } from 'antd';
 
 function ProductDetails({ product, id, productMessages }) {
 
-  const { socket, room, setRoom, setProductId, setMessagesReceived  } = useContext(ChatContext);
+  const { socket, room, setRoom, setProductId, setMessagesReceived } = useContext(ChatContext);
   const { user } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -50,7 +50,7 @@ function ProductDetails({ product, id, productMessages }) {
     localStorage.removeItem('localId')
     localStorage.removeItem('localProductId')
     setMessagesReceived([])
-  },[setMessagesReceived])
+  }, [setMessagesReceived])
 
   //prevents submit button from working if useremail matches the product email
   const disableButton = (event) => {
@@ -108,7 +108,7 @@ function ProductDetails({ product, id, productMessages }) {
           </div>
 
           {email === product.user_email ?
-            <form  onSubmit={disableButton}>
+            <form onSubmit={disableButton}>
               <ButtonPrimary style={{ width: '95%', backgroundColor: "#323232", color: "#FAFAFA", cursor: "not-allowed" }} >
                 Message Seller
               </ButtonPrimary>

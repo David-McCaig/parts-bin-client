@@ -6,6 +6,7 @@ const ProductContext = createContext({});
 
 export const ProductProvider = ({ children }) => {
 
+    const { REACT_APP_SERVER_URL } = process.env;
     //State variable for get request to all products.
     const [productsToDisplay, setproductsToDisplay] = useState([]);
     //State variable for bikes get request
@@ -14,9 +15,9 @@ export const ProductProvider = ({ children }) => {
     const [ComponentToDisplay, setComponentToDisplay] = useState([]);
 
     //Get all products for HomePage.jsx
-    useEffect(() => {
+    const renderProduct = () => {
         //Url for product endpoint stored in a variable.
-        const urlForProductList = 'http://localhost:8000/product';
+        const urlForProductList = `${REACT_APP_SERVER_URL}/product`;
         axios
             .get(urlForProductList)
             .then((response) => {
@@ -27,12 +28,12 @@ export const ProductProvider = ({ children }) => {
                 // If request not successful will console error message
                 console.log(err);
             });
-    }, []);
+    };
 
     //Get request for BikesPage.jsx
     useEffect(() => {
         //URL for bikes endpoint stored in a variable
-        const urlForProductList = `http://localhost:8000/product/bikes`;
+        const urlForProductList = `${REACT_APP_SERVER_URL}/product/bikes`;
         axios
             .get(urlForProductList)
             .then((response) => {
@@ -43,11 +44,11 @@ export const ProductProvider = ({ children }) => {
                 //console error if request fails.
                 console.log(err);
             });
-    }, []);
+    }, [REACT_APP_SERVER_URL]);
 
     //Get request for BikeComponent.jsx
     useEffect(() => {
-        const urlForProductList = 'http://localhost:8000/product/components';
+        const urlForProductList = `${REACT_APP_SERVER_URL}/product/components`;
         axios
             .get(urlForProductList)
             .then((response) => {
@@ -58,13 +59,14 @@ export const ProductProvider = ({ children }) => {
                 //console error message if request fails
                 console.log(err);
             });
-    }, []);
+    }, [REACT_APP_SERVER_URL]);
 
     return (
         <ProductContext.Provider value={{
             productsToDisplay,
             bikeToDisplay,
-            ComponentToDisplay
+            ComponentToDisplay,
+            renderProduct
         }} >
 
             {children}

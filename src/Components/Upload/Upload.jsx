@@ -3,12 +3,14 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import  AuthContext  from '../../Contexts/AuthContext';
+import AuthContext from '../../Contexts/AuthContext';
 import { useContext, useEffect } from 'react';
 import Button from '../ButtonPrimary/ButtonPrimary';
 import { Progress, message } from 'antd'
 
 const Upload = () => {
+
+  const { REACT_APP_SERVER_URL } = process.env;
   //Navigation
   const navigate = useNavigate();
 
@@ -19,7 +21,7 @@ const Upload = () => {
     formState: { errors }
   } = useForm();
 
-  
+
   const { authToken, user, setFailedAuth } = useContext(AuthContext)
   //State Variables
   const [imageFile, setImageFile] = useState(null);
@@ -75,7 +77,7 @@ const Upload = () => {
       return setLoading(percent);
     };
 
-    const urlForInventoryAdd = `http://localhost:8000/product/upload`;
+    const urlForInventoryAdd = `${REACT_APP_SERVER_URL}/product/upload`;
     //POST request to add inventory item
     const formData = new FormData();
     formData.append('item_name', values.item_name);

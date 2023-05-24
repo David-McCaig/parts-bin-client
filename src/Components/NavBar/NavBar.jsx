@@ -2,11 +2,10 @@ import "./NavBar.scss"
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import  AuthContext  from "../../Contexts/AuthContext";
+import AuthContext from "../../Contexts/AuthContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import {message, Space} from 'antd';
-import { MessageOutlined } from '@ant-design/icons';
+import { message } from 'antd';
 
 function NavBar() {
 
@@ -18,11 +17,11 @@ function NavBar() {
   const handleLogout = () => {
     setFailedAuth(true);
     setUser(null);
-    sessionStorage.removeItem('authToken') ;
+    sessionStorage.removeItem('authToken');
     message.success('Log Out successful', 2);
     navigate('/')
   }
-  
+
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -36,30 +35,30 @@ function NavBar() {
               <Nav.Link href="/upload">Post Add</Nav.Link>
 
               {/* conditional if user signed in Chat button link appears */}
-              { success ? (<div>
+              {success ? (<div>
                 <>
-                <Nav.Link href='/chatdashboard'className="nav__message-button" >
-                {/* <MessageOutlined className="nav__message-icon"/> */}
-                <h3 className="nav__message-text">Messages</h3>
-                </Nav.Link>
+                  <Nav.Link href='/chatdashboard' className="nav__message-button" >
+                    {/* <MessageOutlined className="nav__message-icon"/> */}
+                    <h3 className="nav__message-text">Messages</h3>
+                  </Nav.Link>
                 </>
               </div>) : (
                 <></>
-              )}  
-              
+              )}
+
               <div>
                 {/* Conditional to display login or logout button */}
-              { success ? (
-                <div>
-                  <button className="nav__button"  onClick={handleLogout} >
-                  Log Out
-                  </button>
-                </div>
-              ) : (
-                <div>
-                <Nav.Link href="/login">Login</Nav.Link>
-                </div>
-              )}
+                {success ? (
+                  <div>
+                    <button className="nav__button" onClick={handleLogout} >
+                      Log Out
+                    </button>
+                  </div>
+                ) : (
+                  <div>
+                    <Nav.Link href="/login">Login</Nav.Link>
+                  </div>
+                )}
               </div>
             </Nav>
           </Navbar.Collapse>

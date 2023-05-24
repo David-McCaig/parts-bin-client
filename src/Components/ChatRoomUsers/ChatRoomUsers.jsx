@@ -6,6 +6,8 @@ import axios from 'axios';
 
 const RoomAndUsers = () => {
 
+  const { REACT_APP_SERVER_URL } = process.env;
+
   const { socket, productId, messagesRecieved } = useContext(ChatContext);
 
   const [roomUsers, setRoomUsers] = useState([]);
@@ -27,14 +29,14 @@ const RoomAndUsers = () => {
   //get product info associated with chat.
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/product/${id || productId || localProductId || localId}`)
+      .get(`${REACT_APP_SERVER_URL}/product/${id || productId || localProductId || localId}`)
       .then((res) => {
         setProduct(res.data)
       })
       .catch((err) => {
         console.log(err)
       })
-  }, [id, localId, localProductId, productId]);
+  }, [REACT_APP_SERVER_URL, id, localId, localProductId, productId]);
 
   //socket to to chatroom user info
   useEffect(() => {
