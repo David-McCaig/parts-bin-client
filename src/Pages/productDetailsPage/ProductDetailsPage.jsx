@@ -40,7 +40,7 @@ function ProductDetailsPage() {
             .catch((err) => {
                 console.log(err)
             })
-    }, [id])
+    }, [REACT_APP_API_URL, id])
 
 
     //if no product to display, loading wheel will be displayed on screen.
