@@ -33,7 +33,7 @@ function ProductDetailsPage() {
     //get chat messages based on product id
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/chat/product/${id}`)
+            .get(`${REACT_APP_API_URL}/chat/product/${id}`)
             .then((res) => {
                 setProductMessages(res.data)
             })
