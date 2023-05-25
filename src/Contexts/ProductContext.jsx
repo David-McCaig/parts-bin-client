@@ -20,7 +20,7 @@ export const ProductProvider = ({ children }) => {
     useEffect(() => {
 
         //Url for product endpoint stored in a variable.
-        const urlForProductList = `https://partsbin.herokuapp.com/product`;
+        const urlForProductList = `${REACT_APP_API_URL}/product`;
         axios
             .get(urlForProductList)
             .then((response) => {
@@ -37,7 +37,7 @@ export const ProductProvider = ({ children }) => {
     //Get request for BikesPage.jsx
     useEffect(() => {
         //URL for bikes endpoint stored in a variable
-        const urlForProductList = `https://partsbin.herokuapp.com/product/bikes`;
+        const urlForProductList = `${REACT_APP_API_URL}/product/bikes`;
         axios
             .get(urlForProductList)
             .then((response) => {
