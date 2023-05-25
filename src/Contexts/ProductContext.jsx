@@ -5,7 +5,7 @@ const ProductContext = createContext({});
 
 
 export const ProductProvider = ({ children }) => {
-
+    
     const { REACT_APP_API_URL } = process.env;
     
     const[updateProductToDisplay, setupdateProductToDisplay] = useState(false);
@@ -20,7 +20,7 @@ export const ProductProvider = ({ children }) => {
     useEffect(() => {
 
         //Url for product endpoint stored in a variable.
-        const urlForProductList = `${REACT_APP_API_URL}/product`;
+        const urlForProductList = `https://partsbin.herokuapp.com/product`;
         axios
             .get(urlForProductList)
             .then((response) => {
