@@ -1,5 +1,5 @@
 import './ProductDetails.scss'
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import AuthContext from '../../Contexts/AuthContext';
 import ChatContext from '../../Contexts/ChatContext';
 import { useNavigate } from 'react-router';
@@ -19,8 +19,6 @@ function ProductDetails({ product, id, productMessages }) {
   const { user } = useContext(AuthContext);
 
   const navigate = useNavigate();
-
-  const [confirmationMessage, setConfirmationMessage] = useState("");
 
   // Add a check to ensure that the "customer_name" property exists on the "user" object
   const username = user.customer_name ? user.customer_name : '';
@@ -118,7 +116,6 @@ function ProductDetails({ product, id, productMessages }) {
                 Message Seller
               </ButtonPrimary>
             </form>}
-          <p className='message__sent'>{confirmationMessage}</p>
 
         </div>
       </div>
