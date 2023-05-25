@@ -45,7 +45,7 @@ const RoomAndUsers = () => {
     });
     return () => socket.off('chatroom_users');
   }, [socket]);
-
+  console.log(roomUsers)
   //if no room users loading
   if (!roomUsers) {
     return (
@@ -58,7 +58,7 @@ const RoomAndUsers = () => {
   return (
     <div className='chat-details' >
       <div className='chat-details'>
-        <img className="chat-details__image" alt={'Mosaic bike for sale'} src={product.image_path}></img>
+        <img className="chat-details__image" alt={''} src={product.image_path}></img>
         <p className='chat-details__item-name'>{product.item_name}</p>
       </div>
       <div className='chat-details__container'>
