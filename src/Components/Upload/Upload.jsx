@@ -7,6 +7,7 @@ import AuthContext from '../../Contexts/AuthContext';
 import { useContext, useEffect } from 'react';
 import Button from '../ButtonPrimary/ButtonPrimary';
 import { Progress, message } from 'antd'
+import ProductContext from '../../Contexts/ProductContext';
 
 const Upload = () => {
 
@@ -21,6 +22,7 @@ const Upload = () => {
     formState: { errors }
   } = useForm();
 
+  const { setupdateProductToDisplay } = useContext(ProductContext)
 
   const { authToken, user, setFailedAuth } = useContext(AuthContext)
   //State Variables
@@ -95,8 +97,9 @@ const Upload = () => {
         },
         onUploadProgress,
       })
-      .then(function () {
+      .then(function (res) {
         message.success('Upload Successful', 2)
+        setupdateProductToDisplay(true)
         navigate('/');
       })
       .catch((error) => {
@@ -128,7 +131,7 @@ const Upload = () => {
       })} className="upload-add-form">
         {/*Add image*/}
 
-        <img src={imagePreview} width="100%" className="image" ></img>
+        <img src={imagePreview} alt='' width="100%" className="image" ></img>
         <input type="file" name="image_path" className="image__button" onChange={handleFileChange} />
 
         <div className="upload-add-form__item-details">

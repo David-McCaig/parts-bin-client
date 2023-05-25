@@ -7,6 +7,8 @@ const ProductContext = createContext({});
 export const ProductProvider = ({ children }) => {
 
     const { REACT_APP_API_URL } = process.env;
+    
+    const[updateProductToDisplay, setupdateProductToDisplay] = useState(false);
     //State variable for get request to all products.
     const [productsToDisplay, setproductsToDisplay] = useState([]);
     //State variable for bikes get request
@@ -15,7 +17,8 @@ export const ProductProvider = ({ children }) => {
     const [ComponentToDisplay, setComponentToDisplay] = useState([]);
 
     //Get all products for HomePage.jsx
-    const renderProduct = () => {
+    useEffect(() => {
+
         //Url for product endpoint stored in a variable.
         const urlForProductList = `${REACT_APP_API_URL}/product`;
         axios
@@ -28,7 +31,8 @@ export const ProductProvider = ({ children }) => {
                 // If request not successful will console error message
                 console.log(err);
             });
-    }
+    },[REACT_APP_API_URL, updateProductToDisplay]);
+
 
     //Get request for BikesPage.jsx
     useEffect(() => {
@@ -66,7 +70,7 @@ export const ProductProvider = ({ children }) => {
             productsToDisplay,
             bikeToDisplay,
             ComponentToDisplay,
-            renderProduct
+            setupdateProductToDisplay
         }} >
 
             {children}
