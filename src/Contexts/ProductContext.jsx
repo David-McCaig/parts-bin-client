@@ -37,7 +37,7 @@ export const ProductProvider = ({ children }) => {
     //Get request for BikesPage.jsx
     useEffect(() => {
         //URL for bikes endpoint stored in a variable
-        const urlForProductList = `https://partsbin.herokuapp.com/product`;
+        const urlForProductList = `https://partsbin.herokuapp.com/product/bikes`;
         axios
             .get(urlForProductList)
             .then((response) => {
