@@ -8,44 +8,42 @@ const RoomAndUsers = () => {
 
   const { REACT_APP_API_URL } = process.env;
 
-  const { socket, productId, messagesRecieved } = useContext(ChatContext);
+  const { socket, productId } = useContext(ChatContext);
 
   const [roomUsers, setRoomUsers] = useState([]);
   const [product, setProduct] = useState([]);
 
-  const [id] = messagesRecieved.map(msg => msg.product_id);
   //get productId from local storage and store in variables
-  const localId = localStorage.getItem('localId');
+
   const localProductId = localStorage.getItem('localProductId');
 
   //store productId in local storage for get request below
   useEffect(() => {
-    if (id || productId) {
-      localStorage.setItem('localId', id);
+    if (productId) {
       localStorage.setItem('localProductId', productId);
     }
-  }, [id, productId])
+  }, [productId])
 
   //get product info associated with chat.
   useEffect(() => {
     axios
-      .get(`${REACT_APP_API_URL}/product/${id || productId || localProductId || localId}`)
+      .get(`${REACT_APP_API_URL}/product/${productId || localProductId}`)
       .then((res) => {
         setProduct(res.data)
       })
       .catch((err) => {
         console.log(err)
       })
-  }, [REACT_APP_API_URL, id, localId, localProductId, productId]);
+  }, [REACT_APP_API_URL, localProductId, productId]);
 
-  //socket to to chatroom user info
+  //socket to chatroom user info
   useEffect(() => {
     socket.on('chatroom_users', (data) => {
       setRoomUsers(data);
     });
     return () => socket.off('chatroom_users');
   }, [socket]);
-  console.log(roomUsers)
+
   //if no room users loading
   if (!roomUsers) {
     return (

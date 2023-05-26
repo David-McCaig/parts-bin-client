@@ -6,11 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import { useEffect } from 'react';
 
-function ChatDashboard({ image, itemName, message, userName, room, createdAt }) {
+function ChatDashboard({ image, itemName, message, userName, room, createdAt, product_id }) {
 
   const navigate = useNavigate();
 
-  const { socket,  } = useContext(ChatContext);
+  const { socket, setProductId } = useContext(ChatContext);
 
   const { user } = useContext(AuthContext);
 
@@ -20,13 +20,13 @@ function ChatDashboard({ image, itemName, message, userName, room, createdAt }) 
 
   //Remove previous local storage messages
   useEffect(() => {
-    localStorage.removeItem('localId');
     localStorage.removeItem('localProductId');
   },[]);
 
   //Joins chat the user selects
   const joinRoom = (e) => {
     e.preventDefault();
+    setProductId(product_id)
     socket.emit('join_room', { username, room, email });
     navigate('/chat', { replace: true });
   }
