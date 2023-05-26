@@ -49,24 +49,17 @@ function ChatDashboard() {
       </Spin>
     )
   }
-return (
-  <section className='chat-dashboard'>
-    <div className='chat-dashboard__container'>
-      <h1 className='chat-dashboard__title'>My Messages</h1>
-      {buyMessages.length === 0 && sellMessages.length === 0 ? (
-        <>
-          <p className='chat-dashboard__text'>Your inbox is empty</p>
-          <BsFillEnvelopeOpenFill className='chat-dashboard__empty' />
-        </>
-      ) : (
-        <>
-          <ChatDashboardBuyList />
-          <ChatDashboardSellList />
-        </>
-      )}
-    </div>
-  </section>
-);
+  return (
+    <section className='chat-dashboard'>
+      <div className='chat-dashboard__container'>
+        <h1 className='chat-dashboard__title'>My Messages</h1>
+          <>
+            <ChatDashboardBuyList />
+            <ChatDashboardSellList />
+          </>
+      </div>
+    </section>
+  );
 }
 
 export default ChatDashboard
