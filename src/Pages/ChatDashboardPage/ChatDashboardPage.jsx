@@ -6,14 +6,13 @@ import ChatContext from '../../Contexts/ChatContext';
 import { Spin } from 'antd';
 import ChatDashboardBuyList from '../../Components/ChatDashboard/ChatDashboardBuyList';
 import ChatDashboardSellList from '../../Components/ChatDashboard/ChatDashboardSellList';
-import { BsFillEnvelopeOpenFill } from "react-icons/bs";
 
 function ChatDashboard() {
 
   const { REACT_APP_API_URL } = process.env
 
   const { user } = useContext(AuthContext);
-  const { setBuyMessages, setSellMessages, buyMessages, sellMessages } = useContext(ChatContext);
+  const { setBuyMessages, setSellMessages } = useContext(ChatContext);
   //signed in users email
   const email = user.email;
 
