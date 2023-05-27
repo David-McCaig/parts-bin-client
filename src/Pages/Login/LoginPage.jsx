@@ -78,14 +78,14 @@ const Login = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button type='primary' htmlType='submit' className="login__button">
+          <Button type='primary' htmlType='submit' className="login__button" style={{}}>
             Log in
           </Button>
           <div>or <a href='/signup' className='login__register'>Register now!</a> to post an add</div>
           {/* If invalide name or password error message will show up. */}
           {error && <div className="login__message">{error}</div>}
           {/* If successful login. Navigates to upload page */}
-          {success && <Navigate to='/upload' />}
+          {success && <Navigate to='/' />}
         </Form.Item>
       </Form>
     </div>

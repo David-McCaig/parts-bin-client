@@ -17,3 +17,7 @@ code {
 * {
   font-family:'Roboto Flex';
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

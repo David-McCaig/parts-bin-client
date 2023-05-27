@@ -1,6 +1,7 @@
+import './App.css';
 import HomePage from './Pages/HomePage/HomePage.jsx';
 import UploadPage from './Pages/UploadPage/UploadPage.jsx';
-import NavBar from './Components/NavBar/NavBar.jsx';
+import NavBar from './Components/NavBar/NavBar'
 import BikesPage from './Pages/BikesPage/BikesPage';
 import BikeComponentsPage from './Pages/BikeComponentsPage/BikeComponentsPage';
 import ProductDetailsPage from './Pages/productDetailsPage/ProductDetailsPage';
@@ -14,6 +15,7 @@ import { Routes, Route, BrowserRouter  } from 'react-router-dom';
 import { AuthProvider } from './Contexts/AuthContext.jsx';
 import { ProductProvider } from "./Contexts/ProductContext.jsx";
 import { ChatProvider } from './Contexts/ChatContext';
+
 import Footer from './Components/Footer/Footer';
 
 function App() {
@@ -25,7 +27,7 @@ function App() {
       <ProductProvider>
         <AuthProvider>
         <BrowserRouter>
-          <NavBar />
+          <NavBar/>
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/dashboard' element={<Dashboard />} />
