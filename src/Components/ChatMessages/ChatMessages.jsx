@@ -12,7 +12,7 @@ function ChatMessages() {
   const { user } = useContext(AuthContext)
 
   const messagesColumnRef = useRef(null)
-
+  console.log(messagesRecieved)
   //scroll to bottom when new message 
   useEffect(() => {
     messagesColumnRef.current.scrollTop =
@@ -24,7 +24,7 @@ function ChatMessages() {
     <div className='chat-message' ref={messagesColumnRef}>
       {messagesRecieved.map((msg) => (
         //Conditional to add a classname to user_name in index 0
-        <div className={`chat-message__container${user.customer_name === msg.user_name || msg.username ? '--selected' : ''}`} key={msg.id || uuidv4()}>
+        <div className={`chat-message__container${user.customer_name === msg.user_name ? '--selected' : ''}`} key={msg.id || uuidv4()}>
           <p className={`chat-message__message `}> {msg.message} </p>
         </div>
       ))}

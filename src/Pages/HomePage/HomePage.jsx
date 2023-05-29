@@ -1,4 +1,5 @@
 import Header from '../../Components/Header/Header';
+import HeaderTwo from '../../Components/Header/HeaderTwo'
 import ProductCardList from '../../Components/ProductCardList/ProductCardList';
 import { useContext, useEffect } from 'react';
 import { Spin } from 'antd';
@@ -27,6 +28,7 @@ function HomePage() {
   return (
     <>
       <main className='home__load'>
+        {/* <HeaderTwo/> */}
         <Header />
         <div className="product__list">
           <ProductCardList />
