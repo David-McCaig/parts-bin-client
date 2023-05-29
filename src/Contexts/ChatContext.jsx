@@ -60,16 +60,16 @@ export const ChatProvider = ({ children }) => {
   }, [room]);
   
 //If socket disconnects gets messages from local storage and updates messagesRecieved state
-  useEffect(() => {
-    if (messagesRecieved.length === 0) {
-      // Retrieve messages from local storage and use them
-      const storedMessages = localStorage.getItem('last100MessagesLocal');
-      if (storedMessages) {
-        const storedMessagesArray = JSON.parse(storedMessages);
-        setMessagesReceived(storedMessagesArray);
-      }
-    }
-  }, [messagesRecieved.length])
+  // useEffect(() => {
+  //   if (messagesRecieved.length === 0) {
+  //     // Retrieve messages from local storage and use them
+  //     const storedMessages = localStorage.getItem('last100MessagesLocal');
+  //     if (storedMessages) {
+  //       const storedMessagesArray = JSON.parse(storedMessages);
+  //       setMessagesReceived(storedMessagesArray);
+  //     }
+  //   }
+  // }, [messagesRecieved.length])
 
   //sort messages by date
   function sortMessagesByDate(messages) {
