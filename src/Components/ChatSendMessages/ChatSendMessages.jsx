@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import './ChatSendMessages.scss';
 import { useContext, useState, useEffect } from 'react';
 import ChatContext from '../../Contexts/ChatContext';
