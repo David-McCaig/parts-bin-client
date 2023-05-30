@@ -13,7 +13,7 @@ function ChatSendMessages() {
 
   const { REACT_APP_API_URL } = process.env;
 
-  const { socket, room, setRoom, productId, messagesRecieved, recieveLocalMessage } = useContext(ChatContext);
+  const { socket, room, setRoom, productId, messagesRecieved } = useContext(ChatContext);
   const { user } = useContext(AuthContext);
 
   const [message, setMessage] = useState('');
@@ -23,8 +23,12 @@ function ChatSendMessages() {
   const username = user.customer_name ? user.customer_name : '';
   const email = user.email ? user.email : '';
 
+  useEffect(() => {
+    localStorage.setItem('last100MessagesLocal', JSON.stringify(messagesRecieved))
+  },[messagesRecieved])
+
   const sendMessage = () => {
-    if (message !== '') {
+    // if (message !== '') {
       const __createdtime__ = Date.now();
       // Send message to server. 
       socket.emit('send_message', { username, room, message, __createdtime__ });
@@ -37,36 +41,12 @@ function ChatSendMessages() {
         'product_id': id || productId
       })
         .then(() => {
-          const dataToStore = {
-            user_name: username,
-            room: room,
-            message: message,
-            email: email,
-            product_id: id || productId,
-            id: uuidv4(),
-            created_at: __createdtime__,
-            updated_at: __createdtime__,
-          };
-
-          // Retrieve the existing messages from local storage
-          const existingMessages = localStorage.getItem('last100MessagesLocal');
-          let updatedMessages = [];
-
-          if (existingMessages) {
-            // Parse the existing messages from JSON
-            updatedMessages = JSON.parse(existingMessages);
-            // Add the new message to the array
-            updatedMessages.push(dataToStore);
-          }
-
-          // Store the updated messages back to local storage
-          localStorage.setItem('last100MessagesLocal', JSON.stringify(updatedMessages));
-          recieveLocalMessage();
+        
         })
         .catch((err) => {
           console.log(err);
         });
-    }
+    // }
   };
 
   const handleKeyDown = (e) => {
