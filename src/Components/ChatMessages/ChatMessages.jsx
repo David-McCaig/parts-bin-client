@@ -12,20 +12,31 @@ function ChatMessages() {
   const { user } = useContext(AuthContext)
 
   const messagesColumnRef = useRef(null)
-  console.log(messagesRecieved)
+
   //scroll to bottom when new message 
   useEffect(() => {
     messagesColumnRef.current.scrollTop =
       messagesColumnRef.current.scrollHeight;
   }, [messagesRecieved]);
 
+  const selected = (msg) => {
+    if(user.customer_name === msg.user_name) {
+      return '--selected';
+    } else if (user.customer_name === msg.username) {
+      return '--selected';
+    } else {
+      return '';
+    }
+  }
+
   //shows user messages
   return (
     <div className='chat-message' ref={messagesColumnRef}>
       {messagesRecieved.map((msg) => (
         //Conditional to add a classname to user_name in index 0
-        <div className={`chat-message__container${user.customer_name === msg.user_name ? '--selected' : ''}`} key={msg.id || uuidv4()}>
+        <div className={`chat-message__container${selected(msg)}`} key={msg.id || uuidv4()}>
           <p className={`chat-message__message `}> {msg.message} </p>
+          {console.log(typeof user.customer_name,typeof msg.user_name, msg.username)}
         </div>
       ))}
     </div>

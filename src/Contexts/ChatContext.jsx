@@ -15,11 +15,11 @@ export const ChatProvider = ({ children }) => {
   const [buyMessages, setBuyMessages] = useState([]);
   const [sellMessages, setSellMessages] = useState([]);
   const [messagesRecieved, setMessagesReceived] = useState([]);
- 
+
   // Runs whenever a socket event is recieved from the server.
   useEffect(() => {
     socket.on('receive_message', (data) => {
-      
+    
       setMessagesReceived((state) => [
         ...state,
         {
@@ -29,25 +29,18 @@ export const ChatProvider = ({ children }) => {
           product_id: data.product_id,
         },
       ]);
-      
+    
     });
     // Remove event listener on component unmount
     return () => socket.off('receive_message');
   }, [room]);
-  
-  //updates messagesRecieved through local storage
-  const recieveLocalMessage = () => {
-    const newMessage = localStorage.getItem('last100MessagesLocal');
-    const newMessageArray = JSON.parse(newMessage)
-    setMessagesReceived(newMessageArray);
-  }
 
   //gets last 100messages. Also stores messages in local storage.
   useEffect(() => {
     socket.on('last_100_messages', (last100Messages) => {
       last100Messages = JSON.parse(last100Messages);
       last100Messages = sortMessagesByDate(last100Messages);
-  
+
       if (last100Messages.length > 0) {
         // Store last100Messages in local storage
         localStorage.setItem('last100MessagesLocal', JSON.stringify(last100Messages));
@@ -59,17 +52,17 @@ export const ChatProvider = ({ children }) => {
     };
   }, [room]);
   
-//If socket disconnects gets messages from local storage and updates messagesRecieved state
-  // useEffect(() => {
-  //   if (messagesRecieved.length === 0) {
-  //     // Retrieve messages from local storage and use them
-  //     const storedMessages = localStorage.getItem('last100MessagesLocal');
-  //     if (storedMessages) {
-  //       const storedMessagesArray = JSON.parse(storedMessages);
-  //       setMessagesReceived(storedMessagesArray);
-  //     }
-  //   }
-  // }, [messagesRecieved.length])
+// If socket disconnects gets messages from local storage and updates messagesRecieved state
+  useEffect(() => {
+    if (messagesRecieved.length === 0) {
+      // Retrieve messages from local storage and use them
+      const storedMessages = localStorage.getItem('last100MessagesLocal');
+      if (storedMessages) {
+        const storedMessagesArray = JSON.parse(storedMessages);
+        setMessagesReceived(storedMessagesArray);
+      }
+    }
+  }, [messagesRecieved.length])
 
   //sort messages by date
   function sortMessagesByDate(messages) {
@@ -98,7 +91,6 @@ export const ChatProvider = ({ children }) => {
       setSellMessages,
       buyMessages,
       setBuyMessages,
-      recieveLocalMessage
     }}>
 
       {children}
