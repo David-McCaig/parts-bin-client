@@ -4,7 +4,8 @@
 
 .chat-message {
     margin: 0rem 1rem;
-
+    min-height: 20rem;
+    
     @include tablet {
         border-top: $secondary-color-3 .0625rem solid;
     }
