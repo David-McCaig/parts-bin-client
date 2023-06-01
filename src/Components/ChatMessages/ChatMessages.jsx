@@ -10,7 +10,7 @@ function ChatMessages() {
 
   const { messagesRecieved } = useContext(ChatContext);
   const { user } = useContext(AuthContext)
-
+  console.log(messagesRecieved)
   const messagesColumnRef = useRef(null)
 
   //scroll to bottom when new message 
