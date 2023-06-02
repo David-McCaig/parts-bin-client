@@ -140,11 +140,14 @@ a {
 }
 
 .image {
+    border-radius: .5rem;
     margin-top: 4rem;
     width: 90%;
+ 
     
     @include tablet {
-        width: 40rem;
+        width: 30rem;
+        align-items: center;
     }
 }
 
