@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import ChatContext from '../../Contexts/ChatContext';
 import { Spin } from 'antd';
+import { resizeImage } from '../../utils/resizeImage.jsx';
 import './ChatRoomUsers.scss';
 import axios from 'axios';
 
@@ -12,6 +13,8 @@ const RoomAndUsers = () => {
 
   const [roomUsers, setRoomUsers] = useState([]);
   const [product, setProduct] = useState([]);
+
+  const { image_path, item_name, user_name} = product;
 
   //get productId from local storage and store in variables
 
@@ -56,13 +59,13 @@ const RoomAndUsers = () => {
   return (
     <div className='chat-details' >
       <div className='chat-details'>
-        <img className="chat-details__image" alt={''} src={product.image_path}></img>
-        <p className='chat-details__item-name'>{product.item_name}</p>
+        <img className="chat-details__image" alt={''} src={resizeImage(image_path,'c_fill,h_150,w_150')}></img>
+        <p className='chat-details__item-name'>{item_name}</p>
       </div>
       <div className='chat-details__container'>
         <div className='chat-details__user-name'>
           <div className='chat-details__circle'>
-            {product.user_name?.slice(0, 1)}
+            {user_name?.slice(0, 1)}
           </div>
         </div>
       </div>

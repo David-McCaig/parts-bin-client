@@ -10,7 +10,7 @@ function ChatMessages() {
 
   const { messagesRecieved } = useContext(ChatContext);
   const { user } = useContext(AuthContext)
-  console.log(messagesRecieved)
+
   const messagesColumnRef = useRef(null)
 
   //scroll to bottom when new message 
@@ -36,7 +36,6 @@ function ChatMessages() {
         //Conditional to add a classname to user_name in index 0
         <div className={`chat-message__container${selected(msg)}`} key={msg.id || uuidv4()}>
           <p className={`chat-message__message `}> {msg.message} </p>
-          {console.log(typeof user.customer_name,typeof msg.user_name, msg.username)}
         </div>
       ))}
     </div>
