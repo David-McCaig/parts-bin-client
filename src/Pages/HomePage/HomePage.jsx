@@ -2,7 +2,7 @@ import Header from '../../Components/Header/Header';
 import ProductCardList from '../../Components/ProductCardList/ProductCardList';
 import SideScroll from '../../Components/SideScroll/SideScroll';
 import BikesList from '../../Components/BikesList/BikesList';
-import { Children, useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Spin } from 'antd';
 import './HomePage.scss';
 import ProductContext from '../../Contexts/ProductContext';

@@ -19,6 +19,7 @@
         @include tablet {
             margin-left: 1rem;
             font-weight: 600;
+            letter-spacing: .12rem;
         }
     }
 
@@ -56,9 +57,7 @@
         border-radius: 2rem;
         transition: .3s;
         &:hover {
-            background-color: $secondary-color-4;
-            color: $color-primary-1;
-            border: $secondary-color-1 1px solid;
+            opacity: 75%;
         }
 
         @include tablet {
