@@ -1,5 +1,4 @@
 import React from 'react'
-import yeti from '../../assets/images/Yeti-SB135-SRAM-Transmission-Review-3.webp'
 import './Banner.scss'
 
 function Banner({ children, title, description, image }) {
