@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useNavigate } from 'react-router';
 import './SideScroll.scss';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
+import ButtonSecondary from '../ButtonSecondary/ButtonSecondary';
 
 
 function SideScroll({ children, title }) {
@@ -47,9 +48,10 @@ function SideScroll({ children, title }) {
                 <button className='side-scroll__button-right' onClick={scrollRight}>
                     <ArrowRightOutlined />
                 </button>
-                <button className='side-scroll__button-link' onClick={() => navigate('/bikes')} >
-                    View All
-                </button>
+                
+                <ButtonSecondary onClick={() => navigate('/bikes')}>
+                    View
+                </ButtonSecondary>
             </div>
 
             <div className='side-scroll__container' ref={sliderRef}>

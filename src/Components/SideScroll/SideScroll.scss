@@ -49,45 +49,26 @@
             color: $color-primary-1;
         }
     }
-
-    &__button-link {
-        
-        width: 7rem;
-        height: 3rem;
-        border-radius: 2rem;
-        transition: .3s;
-        &:hover {
-            opacity: 75%;
-        }
-
-        @include tablet {
-            margin-bottom: 0rem;
-            margin-right: 1rem;
-            background-color: black;
-            color: white;
-        }
-    }
 }
 
 .side-scroll__container {
-    // display: none;
-    width: 100%;
-    display: flex;
-    overflow-x: scroll;
-    overflow: hidden;
-    background-color: $secondary-color-4;
-    @include tablet {
+    display: none;
 
+    @include tablet {
+        width: 100%;
+        display: flex;
+        overflow-x: scroll;
+        overflow: hidden;
+        background-color: $secondary-color-4;
     }
 
 
     .side-scroll__container-inner {
-        display: flex;
-        flex-direction: row;
-        object-fit: cover;
-        
-        @include tablet {
 
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            object-fit: cover;
         }
     }
 }

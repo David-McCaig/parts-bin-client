@@ -1,0 +1,18 @@
+@use "../../styles/mixins/mixins.scss" as *;
+@use "../../styles/partials/colours" as *;
+
+.Button-Secondary {
+    width: 7rem;
+    height: 3rem;
+    border-radius: 2rem;
+    transition: .3s;
+    margin-bottom: 0rem;
+    margin-right: 1rem;
+    background-color: black;
+    color: white;
+
+    &:hover {
+        opacity: 75%;
+    }
+
+}
