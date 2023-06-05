@@ -70,23 +70,24 @@
 }
 
 .side-scroll__container {
-    display: none;
-
+    // display: none;
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    overflow: hidden;
+    background-color: $secondary-color-4;
     @include tablet {
-        width: 100%;
-        display: flex;
-        overflow-x: scroll;
-        overflow: hidden;
-        background-color: $secondary-color-4;
+
     }
 
 
     .side-scroll__container-inner {
-
+        display: flex;
+        flex-direction: row;
+        object-fit: cover;
+        
         @include tablet {
-            display: flex;
-            flex-direction: row;
-            object-fit: cover;
+
         }
     }
 }
