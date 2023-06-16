@@ -14,7 +14,7 @@ const RoomAndUsers = () => {
   const [roomUsers, setRoomUsers] = useState([]);
   const [product, setProduct] = useState([]);
 
-  const { image_path, item_name, user_name} = product;
+  const { image_path, item_name, user_name } = product;
 
   //get productId from local storage and store in variables
 
@@ -59,7 +59,14 @@ const RoomAndUsers = () => {
   return (
     <div className='chat-details' >
       <div className='chat-details'>
-        <img className="chat-details__image" alt={''} src={resizeImage(image_path,'c_fill,h_150,w_150')}></img>
+        {!image_path ? (
+          <div className="chat-details__image"  ></div>
+        ) : (
+          <img className="chat-details__image"
+            alt={''}
+            src={resizeImage(image_path, 'c_fill,h_150,w_150')}>
+          </img>
+        )}
         <p className='chat-details__item-name'>{item_name}</p>
       </div>
       <div className='chat-details__container'>
