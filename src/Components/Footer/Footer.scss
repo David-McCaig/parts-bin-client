@@ -2,9 +2,10 @@
 @use "../../styles/partials/colours" as *;
 
 .footer-line {
-  border-top: 1px solid $secondary-color-3;
+  border-bottom: 1px solid $secondary-color-3;
   margin: 0rem;
-  
+  height: 2rem;
+  background-color: $secondary-color-4;
 }
 
 .contact-top {
@@ -15,7 +16,8 @@
   min-width: 20rem;
   padding-left: 1rem;
   padding-bottom: .5rem;
-
+  padding-top: 2rem;
+  
   @include tablet {
     padding: 1rem 2.5rem 1.3rem 2.5rem;
     height: 15rem;

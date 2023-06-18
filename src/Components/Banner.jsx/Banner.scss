@@ -2,7 +2,6 @@
 @use "../../styles/partials/colours" as *;
 
 .banner {
-    padding-top: 3rem;
     background-color: $secondary-color-4;
    
     @include tablet {

@@ -40,45 +40,55 @@ function HomePage() {
     <>
       <main className='home__load'>
         {/* <HeaderTwo/> */}
-        <Header />
+        <div className='home__header'>
+          <Header />
+        </div>
 
-        < SideScroll
-          title='New Arrivals - Used And New Bikes'
-          onClick={() => navigate('/bikes')}
-        >
-          <BikesList />
-        </SideScroll>
+        <div className='home__side-first'>
+          < SideScroll
+            title='New Arrivals - Used And New Bikes'
+            onClick={() => navigate('/bikes')}
+          >
+            <BikesList />
+          </SideScroll>
+        </div>
 
-        <Banner
-          image={chrisKing}
-          title='Mountain Bike Components'
-          description='ChrisKing hubs just in '
-        >
-          <ButtonSecondary styles={{ width: '10rem', height: '2.8rem' }} onClick={() => navigate('/components')}>
-            View Components
-          </ButtonSecondary>
-        </Banner>
+        <div className='home__banner-first'>
+          <Banner
+            image={chrisKing}
+            title='Mountain Bike Components'
+            description='ChrisKing hubs just in '
+          >
+            <ButtonSecondary styles={{ width: '10rem', height: '2.8rem' }} onClick={() => navigate('/components')}>
+              View Components
+            </ButtonSecondary>
+          </Banner>
+        </div>
 
-        < SideScroll
-          title='New Arrivals - Used And New Components'
-          onClick={() => navigate('/components')}
-        >
-          <BikeComponentsList />
-        </SideScroll>
+        <div className='home__side-second'>
+          < SideScroll
+            title='New Arrivals - Used And New Components'
+            onClick={() => navigate('/components')}
+          >
+            <BikeComponentsList />
+          </SideScroll>
+        </div>
 
         <div className='bikes-list__mobile'>
           <BikesList />
         </div>
 
-        <Banner
-          image={yeti}
-          title='Mountain Bikes'
-          description='New Yeti mountain bike just in'
-        >
-          <ButtonSecondary styles={{ width: '10rem', height: '2.8rem' }} onClick={() => navigate('/bikes')}>
-            View Bikes
-          </ButtonSecondary>
-        </Banner>
+        <div className='home__banner-second'>
+          <Banner
+            image={yeti}
+            title='Mountain Bikes'
+            description='New Yeti mountain bike just in'
+          >
+            <ButtonSecondary styles={{ width: '10rem', height: '2.8rem' }} onClick={() => navigate('/bikes')}>
+              View Bikes
+            </ButtonSecondary>
+          </Banner>
+        </div>
 
         <div className="product__list">
           <ProductCardList />

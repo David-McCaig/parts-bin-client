@@ -12,6 +12,7 @@
     animation: fadeInAnimation ease .5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+    background-color: $color-primary-4;
 }
 
 .bikes-list__mobile {
@@ -21,6 +22,48 @@
     }
 }
 
+.home__header {
+    padding-bottom: 3.75rem;
+    background-color: $color-primary-4;
 
+    @include tablet {
+        padding-bottom: 0rem;
+    }
+}
 
+.home__banner-first {
+   margin-bottom: 1.5rem;
+   padding-top: 3rem;
+   background-color: $color-primary-4;
 
+   @include tablet {
+    padding-top: .625rem;
+    padding-bottom: .5rem;
+   }
+
+   @include desktop {
+    padding-bottom: 1rem;
+   }
+}
+
+.home__banner-second {
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    padding-top: 0rem;
+
+    @include desktop {
+        padding-bottom: 2rem;
+    }
+}
+
+.home__side-first {
+    padding-top: 6rem;
+
+    @include desktop {
+        padding-bottom: 1.5625rem;
+    }
+}
+
+.home__side-second {
+    padding-bottom: 4.5rem;
+}
