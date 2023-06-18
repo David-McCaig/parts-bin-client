@@ -54,9 +54,6 @@ Install dependencies
   npm install 
 ```
 
-In server side 
-run migration and seed files to set up your database.
-
 Start the server on the client side 
 
 ```bash
