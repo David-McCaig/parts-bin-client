@@ -46,6 +46,7 @@ const Login = () => {
         className="login__form"
         initialValues={{ remember: true }}
         onFinish={handleSubmit}
+        style={{paddingBottom: '0rem'}}
       >
         <Form.Item
           name='email'
@@ -82,10 +83,12 @@ const Login = () => {
             Log in
           </Button>
           <div>or <a href='/signup' className='login__register'>Register now!</a> to post an add</div>
+          
           {/* If invalide name or password error message will show up. */}
           {error && <div className="login__message">{error}</div>}
           {/* If successful login. Navigates to upload page */}
           {success && <Navigate to='/' />}
+          <p className='guest__login'>Guest Login: <br/>Email = brock@gmail.com <br/>Password = 123 </p>
         </Form.Item>
       </Form>
     </div>
