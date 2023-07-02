@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import ChatContext from '../../Contexts/ChatContext';
 import { Spin } from 'antd';
 import { resizeImage } from '../../utils/resizeImage.jsx';
@@ -55,28 +56,27 @@ const RoomAndUsers = () => {
       </Spin>
     )
   }
-
   return (
-    <div className='chat-details' >
-      <div className='chat-details'>
-        {!image_path ? (
-          <div className="chat-details__image"  ></div>
-        ) : (
-          <img className="chat-details__image"
-            alt={''}
-            src={resizeImage(image_path, 'c_fill,h_150,w_150')}>
-          </img>
-        )}
-        <p className='chat-details__item-name'>{item_name}</p>
-      </div>
-      <div className='chat-details__container'>
-        <div className='chat-details__user-name'>
-          <div className='chat-details__circle'>
-            {user_name?.slice(0, 1)}
+    <Link to={`/product/${localProductId}`} className='chat-details' >
+        <div className='chat-details'>
+          {!image_path ? (
+            <div className="chat-details__image"  ></div>
+          ) : (
+            <img className="chat-details__image"
+              alt={''}
+              src={resizeImage(image_path, 'c_fill,h_150,w_150')}>
+            </img>
+          )}
+          <p className='chat-details__item-name'>{item_name}</p>
+        </div>
+        <div className='chat-details__container'>
+          <div className='chat-details__user-name'>
+            <div className='chat-details__circle'>
+              {user_name?.slice(0, 1)}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+    </Link>
   );
 };
 
