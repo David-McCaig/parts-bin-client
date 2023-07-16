@@ -88,7 +88,7 @@ const Login = () => {
           {error && <div className="login__message">{error}</div>}
           {/* If successful login. Navigates to upload page */}
           {success && <Navigate to='/' />}
-          <p className='guest__login'>Guest Login: <br/>Email = brock@gmail.com <br/>Password = 123 </p>
+          <p className='guest__login'>Guest Login: <br/>Email =brock@gmail.com <br/>Password =123 </p>
         </Form.Item>
       </Form>
     </div>
