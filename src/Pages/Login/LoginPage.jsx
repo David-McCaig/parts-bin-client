@@ -46,7 +46,7 @@ const Login = () => {
         className="login__form"
         initialValues={{ remember: true }}
         onFinish={handleSubmit}
-        style={{paddingBottom: '0rem'}}
+        style={{padding: '2rem 2rem 0rem 2rem'}}
       >
         <Form.Item
           name='email'
