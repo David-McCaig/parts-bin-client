@@ -44,6 +44,7 @@ const Signup = () => {
       className="signup__form"
       initialValues={{ remember: true }}
       onFinish={handleSubmit}
+      style={{padding: '2rem 2rem 0rem 2rem'}}
     >
         <Form.Item
         name='customer_name'
