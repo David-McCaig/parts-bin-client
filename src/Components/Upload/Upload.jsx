@@ -70,7 +70,6 @@ const Upload = () => {
     event.preventDefault();
     navigate('/');
   };
-
   //Handle post new product
   const handleUpdateSaved = () => {
 
@@ -87,6 +86,7 @@ const Upload = () => {
     formData.append('item_name', values.item_name);
     formData.append('description', values.description);
     formData.append('category', values.category);
+    formData.append('public_id', user.public_id);
     formData.append('user_name', user.customer_name);
     formData.append('user_email', user.email);
     formData.append('price', values.price);
