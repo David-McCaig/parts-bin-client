@@ -14,31 +14,31 @@ function ChatDashboard() {
   const { user } = useContext(AuthContext);
   const { setBuyMessages, setSellMessages } = useContext(ChatContext);
   //signed in users email
-  const email = user.email;
+  const publicId = user.public_id;
 
   //get first message of each chatroom for items that user is selling
   useEffect(() => {
     axios
-      .get(`${REACT_APP_API_URL}/chat/buy/${email}`)
+      .get(`${REACT_APP_API_URL}/chat/buy/${publicId}`)
       .then((res) => {
         setBuyMessages(res.data)
       })
       .catch((err) => {
         console.log(err)
       })
-  }, [REACT_APP_API_URL, email, setBuyMessages])
+  }, [REACT_APP_API_URL, publicId, setBuyMessages])
 
   //get first message of each chatroom for items that user is buying
   useEffect(() => {
     axios
-      .get(`${REACT_APP_API_URL}/chat/sell/${email}`)
+      .get(`${REACT_APP_API_URL}/chat/sell/${publicId}`)
       .then((res) => {
         setSellMessages(res.data)
       })
       .catch((err) => {
         console.log(err)
       })
-  }, [REACT_APP_API_URL, email, setSellMessages])
+  }, [REACT_APP_API_URL, publicId, setSellMessages])
 
   //if no user loading screen
   if (!user) {

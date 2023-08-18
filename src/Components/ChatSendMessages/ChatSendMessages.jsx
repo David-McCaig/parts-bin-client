@@ -21,7 +21,8 @@ function ChatSendMessages() {
   const [id] = messagesRecieved.map(msg => msg.product_id);
   const username = user.customer_name ? user.customer_name : '';
   const email = user.email ? user.email : '';
-
+  const publicId = user.public_id ? user.public_id : '';
+console.log(message)
   useEffect(() => {
     localStorage.setItem('last100MessagesLocal', JSON.stringify(messagesRecieved))
   },[messagesRecieved])
@@ -33,6 +34,7 @@ function ChatSendMessages() {
       socket.emit('send_message', { username, room, message, __createdtime__ });
       setMessage('');
       axios.post(`${REACT_APP_API_URL}/chat`, {
+        'public_id': publicId,
         'user_name': username,
         'message': message,
         'room': room,
