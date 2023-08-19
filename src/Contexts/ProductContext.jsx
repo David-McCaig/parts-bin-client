@@ -1,5 +1,6 @@
-import { createContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import { createContext, useState, useMemo } from 'react';
+import { useAxiosFetch } from '../hooks/useAxiosFetch';
+import { useAxiosFetchSetState } from '../hooks/useAxiosFetchSetState';
 
 const ProductContext = createContext({});
 
@@ -16,54 +17,19 @@ export const ProductProvider = ({ children }) => {
     // State variable. Initial state is an empty array
     const [ComponentToDisplay, setComponentToDisplay] = useState([]);
 
+    
     //Get all products for HomePage.jsx
-    useEffect(() => {
-
-        //Url for product endpoint stored in a variable.
-        const urlForProductList = `${REACT_APP_API_URL}/product`;
-        axios
-            .get(urlForProductList)
-            .then((response) => {
-                // If request successful updates productToDisplay state with response data. Can access data through productToDisplay variable.
-                setproductsToDisplay(response.data);
-            })
-            .catch((err) => {
-                // If request not successful will console error message
-                console.log(err);
-            });
-    },[REACT_APP_API_URL, updateProductToDisplay]);
-
+    const dependencyArray = useMemo(() => [updateProductToDisplay, REACT_APP_API_URL], [updateProductToDisplay, REACT_APP_API_URL]);
+    const getAllProducts = useAxiosFetch(`${REACT_APP_API_URL}/product`, dependencyArray);
+    useAxiosFetchSetState(getAllProducts.data, setproductsToDisplay)
 
     //Get request for BikesPage.jsx
-    useEffect(() => {
-        //URL for bikes endpoint stored in a variable
-        const urlForProductList = `${REACT_APP_API_URL}/product/bikes`;
-        axios
-            .get(urlForProductList)
-            .then((response) => {
-                //update bikeToDisplay state with repsonse data
-                setBikeToDisplay(response.data);
-            })
-            .catch((err) => {
-                //console error if request fails.
-                console.log(err);
-            });
-    }, [REACT_APP_API_URL]);
-
+    const getAllBikes = useAxiosFetch(`${REACT_APP_API_URL}/product/bikes`, REACT_APP_API_URL);
+    useAxiosFetchSetState(getAllBikes.data, setBikeToDisplay)
+    
     //Get request for BikeComponent.jsx
-    useEffect(() => {
-        const urlForProductList = `${REACT_APP_API_URL}/product/components`;
-        axios
-            .get(urlForProductList)
-            .then((response) => {
-                //update componentToDisplay with response data
-                setComponentToDisplay(response.data);
-            })
-            .catch((err) => {
-                //console error message if request fails
-                console.log(err);
-            });
-    }, [REACT_APP_API_URL]);
+    const getAllBikeComponents = useAxiosFetch(`${REACT_APP_API_URL}/product/components`, REACT_APP_API_URL);
+    useAxiosFetchSetState(getAllBikeComponents.data, setComponentToDisplay)
 
     return (
         <ProductContext.Provider value={{
