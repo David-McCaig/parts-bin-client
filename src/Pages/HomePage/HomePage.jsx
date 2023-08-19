@@ -8,6 +8,7 @@ import BikeComponentsList from '../../Components/BikeComponents/BikeComponentsLi
 import yeti from '../../assets/images/Yeti-SB135-SRAM-Transmission-Review-3.webp';
 import chrisKing from '../../assets/images/Chris-King-Guest-House-1.webp'
 import { useContext, useEffect } from 'react';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { useNavigate } from 'react-router';
 import { Spin } from 'antd';
 import './HomePage.scss';
@@ -21,11 +22,7 @@ function HomePage() {
   const { productsToDisplay } = useContext(ProductContext);
 
   //Scroll to top on first render.
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-  }, []);
-
-
+  useScrollToTop()
 
   //If no product to display, loading wheel will be displayed on screen
   if (productsToDisplay.length === 0) {

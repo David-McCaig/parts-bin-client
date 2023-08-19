@@ -1,4 +1,5 @@
 import { useContext, useEffect } from 'react'
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../Contexts/AuthContext'
 import ChatContext from '../../Contexts/ChatContext';
@@ -13,9 +14,7 @@ function Chat() {
   const { user } = useContext(AuthContext);
   const { messagesRecieved } = useContext(ChatContext);
   //Scroll to top on first render.
-  useEffect(() => {
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
-  },[])
+  useScrollToTop();
 
   //if no user loading
   if (!user) {
