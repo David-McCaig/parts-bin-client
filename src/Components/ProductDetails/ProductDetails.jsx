@@ -75,49 +75,49 @@ function ProductDetails({ product, id, productMessages }) {
 
   return (
     <section className='product'>
-
-      <img className="product-details__image" alt={'Mosaic bike for sale'} src={product.image_path}></img>
-
       <div className='product-details'>
+        <img className="product-details__image" alt={'Mosaic bike for sale'} src={product.image_path}></img>
         <div >
-          <h2 className='product-details__title'>{product.item_name} </h2>
-          <div className='product-details__container'>
-            <CgNametag className="product-details__logo" />
-            <p className='product-details__location'>  {product.user_name} </p>
-          </div>
-          <div className='product-details__container'>
-            <ImLocation2 className="product-details__logo" />
-            <p className='product-details__location'>  Toronto </p>
-          </div>
-          <div className='product-details__container'>
-            <ImPriceTags className="product-details__logo" />
-            <p className='product-details__price'>{product.price}</p>
+          <div>
+            <h2 className='product-details__title'>{product.item_name} </h2>
+            <div className='product-details__container'>
+              <CgNametag className="product-details__logo" />
+              <p className='product-details__location'>  {product.user_name} </p>
+            </div>
+            <div className='product-details__container'>
+              <ImLocation2 className="product-details__logo" />
+              <p className='product-details__location'>  Toronto </p>
+            </div>
+            <div className='product-details__container'>
+              <ImPriceTags className="product-details__logo" />
+              <p className='product-details__price'>{product.price}</p>
+            </div>
+
+            <div className='product-details__container-description'>
+              <TbFileDescription className="product-details__logo-description" />
+              <p className='product-details__description'>{product.description}</p>
+            </div>
           </div>
 
-          <div className='product-details__container-description'>
-            <TbFileDescription className="product-details__logo-description" />
-            <p className='product-details__description'>{product.description}</p>
+          <div className='message'>
+            <div className='message__container'>
+              <GrContact className='message__icon' />
+              <p className='message__title'>Send seller a message</p>
+            </div>
+
+            {publicId === product.public_id ?
+              <form onSubmit={disableButton}>
+                <ButtonPrimary style={{ width: '100%', marginTop: '1rem', backgroundColor: "#323232", color: "#FAFAFA", cursor: "not-allowed" }} >
+                  Message Seller
+                </ButtonPrimary>
+              </form> :
+              <form onSubmit={joinRoom}>
+                <ButtonPrimary type='submit' style={{ width: '100%', margin: '1rem 0rem 0rem 0rem', }} >
+                  Message Seller
+                </ButtonPrimary>
+              </form>}
+
           </div>
-        </div>
-
-        <div className='message'>
-          <div className='message__container'>
-            <GrContact className='message__icon' />
-            <p className='message__title'>Send seller a message</p>
-          </div>
-
-          {publicId === product.public_id ?
-            <form onSubmit={disableButton}>
-              <ButtonPrimary style={{ width: '95%', backgroundColor: "#323232", color: "#FAFAFA", cursor: "not-allowed" }} >
-                Message Seller
-              </ButtonPrimary>
-            </form> :
-            <form onSubmit={joinRoom}>
-              <ButtonPrimary type='submit' style={{ width: '95%' }} >
-                Message Seller
-              </ButtonPrimary>
-            </form>}
-
         </div>
       </div>
     </section>

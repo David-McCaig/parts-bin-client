@@ -8,38 +8,54 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 
+
     @include tablet {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-left: 2rem;
-        height: 50rem;
-        width: 100%;
-        padding-bottom: 18rem;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // padding-left: 2rem;
+        // height: 50rem;
+        // width: 100%;
+        // padding-bottom: 18rem;
     }
 
     @include desktop {
         justify-content: center;
+        padding-bottom: 10rem;
     }
 }
 
 .product-details {
+    max-width: 40rem;
+    margin: auto;
 
     @include tablet {
-        margin-top: 5rem;
-        margin-left: 2rem;
-        width: 40%;
-
+        // margin-top: 5rem;
+        // margin-left: 2rem;
+        // width: 40%;
+        // max-width: 29rem;
+        padding: 1rem 0rem 2rem 0rem;
     }
 
     @include desktop {
-        max-width: 29rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        max-width: 70rem;
+        // margin: 10rem 0rem;
+        padding: 6rem 0rem;
+        
     }
 
     &__title {
         font-weight: 600;
         margin-top: 1.5rem;
         margin-left: 1rem;
+
+        @include desktop {
+            margin-top: 0rem;
+        }
     }
 
     &__container {
@@ -76,7 +92,7 @@
         max-width: 23rem;
 
         @include tablet {
-            max-width: 29rem;
+            // max-width: 29rem;
 
         }
 
@@ -95,12 +111,15 @@
     justify-content: center;
 
     @include tablet {
-        width: 30rem;
-        margin-top: 5.8rem;
+        
+        // width: 30rem;
+        // margin-top: 5.8rem;
     }
 
     @include desktop {
-        max-width: 31rem;
+       width: 35rem;
+       object-fit: cover;
+       margin-right: .5rem;
     }
 }
 
@@ -156,6 +175,7 @@ form {
     font-size: 16px;
     margin: 4px 2px;
     transition: 0.3s;
+    
 
     &:hover {
         background-color: $color-primary-1;
