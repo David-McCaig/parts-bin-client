@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../Contexts/AuthContext'

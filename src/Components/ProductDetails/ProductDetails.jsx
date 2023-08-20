@@ -23,6 +23,7 @@ function ProductDetails({ product, id, productMessages }) {
   // Add a check to ensure that the "customer_name" property exists on the "user" object
   const username = user.customer_name ? user.customer_name : '';
   const email = user.email ? user.email : '';
+  const publicId = user.public_id ? user.public_id : '';
 
   //Checks if chat between users exists. if it exists, sets room to existing room id. If it doesn't it will set room to new id created by uuid.
   useEffect(() => {
@@ -105,7 +106,7 @@ function ProductDetails({ product, id, productMessages }) {
             <p className='message__title'>Send seller a message</p>
           </div>
 
-          {email === product.user_email ?
+          {publicId === product.public_id ?
             <form onSubmit={disableButton}>
               <ButtonPrimary style={{ width: '95%', backgroundColor: "#323232", color: "#FAFAFA", cursor: "not-allowed" }} >
                 Message Seller

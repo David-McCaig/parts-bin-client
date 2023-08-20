@@ -1,6 +1,6 @@
 import BikeComponents from '../../Components/BikeComponents/BikeComponentsList';
 import './BikeComponentsPage.scss';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import ProductContext from '../../Contexts/ProductContext';
 import { Spin } from 'antd';
 

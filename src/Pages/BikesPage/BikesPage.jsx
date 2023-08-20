@@ -1,8 +1,7 @@
 import BikesList from '../../Components/BikesList/BikesList';
 import './BikesPage.scss';
 import { Spin } from 'antd';
-import { useContext, useEffect } from 'react';
-import { useScrollToTop } from '../../hooks/useScrollToTop';
+import { useContext } from 'react';
 import ProductContext from '../../Contexts/ProductContext';
 
 function BikesPage() {

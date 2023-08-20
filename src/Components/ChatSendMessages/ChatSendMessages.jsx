@@ -22,7 +22,7 @@ function ChatSendMessages() {
   const username = user.customer_name ? user.customer_name : '';
   const email = user.email ? user.email : '';
   const publicId = user.public_id ? user.public_id : '';
-console.log(message)
+
   useEffect(() => {
     localStorage.setItem('last100MessagesLocal', JSON.stringify(messagesRecieved))
   },[messagesRecieved])

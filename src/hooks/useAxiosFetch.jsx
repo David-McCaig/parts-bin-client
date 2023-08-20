@@ -20,7 +20,7 @@ export const useAxiosFetch = (URL,dependancyArray) => {
     useEffect(() => {
       fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },dependancyArray);
+    },[dependancyArray]);
   
     return { data, error, loading, fetchData };
 }

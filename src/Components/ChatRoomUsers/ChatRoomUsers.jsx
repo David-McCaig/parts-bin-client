@@ -1,10 +1,11 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useMemo } from 'react';
+import { useAxiosFetch } from '../../hooks/useAxiosFetch';
+import { useAxiosFetchSetState } from '../../hooks/useAxiosFetchSetState'
 import { Link } from 'react-router-dom';
 import ChatContext from '../../Contexts/ChatContext';
 import { Spin } from 'antd';
 import { resizeImage } from '../../utils/resizeImage.jsx';
 import './ChatRoomUsers.scss';
-import axios from 'axios';
 
 const RoomAndUsers = () => {
 
@@ -29,16 +30,9 @@ const RoomAndUsers = () => {
   }, [productId])
 
   //get product info associated with chat.
-  useEffect(() => {
-    axios
-      .get(`${REACT_APP_API_URL}/product/${productId || localProductId}`)
-      .then((res) => {
-        setProduct(res.data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [REACT_APP_API_URL, localProductId, productId]);
+  const dependencyArray = useMemo(() => [REACT_APP_API_URL, localProductId, productId], [REACT_APP_API_URL, localProductId, productId]);
+  const getFirstMessageUserIsBuying = useAxiosFetch(`${REACT_APP_API_URL}/product/${productId || localProductId}`, dependencyArray);
+  useAxiosFetchSetState(getFirstMessageUserIsBuying.data, setProduct)
 
   //socket to chatroom user info
   useEffect(() => {
