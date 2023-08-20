@@ -8,9 +8,7 @@ const contentStyle = {
   background: '#364d79',
 };
 const App = () => {
-  // const onChange = (currentSlide) => {
-  //   console.log(currentSlide);
-  // };
+
   return (
     <Carousel >
             <header className="hero__image">

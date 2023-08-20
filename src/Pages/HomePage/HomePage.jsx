@@ -7,7 +7,7 @@ import ButtonSecondary from '../../Components/ButtonSecondary/ButtonSecondary';
 import BikeComponentsList from '../../Components/BikeComponents/BikeComponentsList'
 import yeti from '../../assets/images/Yeti-SB135-SRAM-Transmission-Review-3.webp';
 import chrisKing from '../../assets/images/Chris-King-Guest-House-1.webp'
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { useScrollToTop } from '../../hooks/useScrollToTop';
 import { useNavigate } from 'react-router';
 import { Spin } from 'antd';
