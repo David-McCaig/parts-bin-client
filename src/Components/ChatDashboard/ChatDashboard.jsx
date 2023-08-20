@@ -10,7 +10,7 @@ function ChatDashboard({ image, itemName, message, userName, room, createdAt, pr
 
   const navigate = useNavigate();
 
-  const { socket, setProductId } = useContext(ChatContext);
+  const { socket, setProductId, setRoom } = useContext(ChatContext);
 
   const { user } = useContext(AuthContext);
 
@@ -27,6 +27,7 @@ function ChatDashboard({ image, itemName, message, userName, room, createdAt, pr
   const joinRoom = (e) => {
     e.preventDefault();
     setProductId(product_id)
+    setRoom(room)
     socket.emit('join_room', { username, room, email });
     navigate('/chat', { replace: true });
   }
